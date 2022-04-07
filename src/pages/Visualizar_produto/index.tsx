@@ -2,9 +2,7 @@ import { useEffect, useState } from "react"
 import { http } from "../../http/axios"
 import { useParams } from "react-router-dom"
 import dayjs from "dayjs"
-import toast from "react-hot-toast"
-
-export function VizualizarProdutos() {
+export function VisualizarProdutos() {
 
     const [nome, setNome] = useState("")
     const [descricao, setDescricao] = useState("")

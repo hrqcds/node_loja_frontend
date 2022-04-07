@@ -32,15 +32,12 @@ export function EfetuarCompras() {
     const [pagamento, setPagamento] = useState("")
 
     useEffect(() => {
-        const getAllProdutos = async () => {
-            const response = await http.get("/produtos")
-
-            setProduto(response.data.produtos)
-
+        const getAllProdutos = () => {
+            http.get("/produtos").then(response => { setProduto(response.data.produtos) }).catch(e => console.log(e))
         }
 
-        getAllProdutos().catch(e => console.log(e))
-    })
+        getAllProdutos()
+    }, [])
 
     const adicionarProduto = () => {
 
@@ -76,6 +73,7 @@ export function EfetuarCompras() {
         toast.success("Produto adicionado", {
             duration: 1250
         })
+        return
 
     }
 
@@ -89,11 +87,12 @@ export function EfetuarCompras() {
         }
 
         const index = produtosSelecionados.findIndex(p => p.id === Number(id))
-        setTotal(total - Number(produtosSelecionados[index].preco) * produtosSelecionados[index].quantidade)
         const p = produtosSelecionados
+        setTotal(total - Number(p[index].preco) * produtosSelecionados[index].quantidade)
         p.splice(index, 1)
         setProdutosSelecionados(p)
         toast.success("Item removido")
+        return
     }
 
     const efetuar = async () => {
