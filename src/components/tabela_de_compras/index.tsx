@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { FiEdit, FiTrash, FiEye } from "react-icons/fi";
+import { FiEdit, FiCheck, FiEye, } from "react-icons/fi";
 
 interface iPropsListaDeProdutos {
 
@@ -41,20 +41,24 @@ export function TabelaDeCompras(
             <td>{status}</td>
             <td>{d.format("DD/MM/YYYY")}</td>
             <td style={{ padding: ".5rem" }}>
+
                 <button className="td-button" style={{
                     padding: ".2rem",
                     marginRight: ".3rem"
                 }}>
+
                     <FiEye />
                 </button>
+
                 <button className="td-button" style={{
                     padding: ".2rem",
                     marginRight: ".3rem"
                 }}>
                     <FiEdit />
                 </button>
+
                 <button className="td-button" style={{ padding: ".2rem" }}>
-                    <FiTrash />
+                    <FiCheck />
                 </button>
             </td>
         </tr>

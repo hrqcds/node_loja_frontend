@@ -11,6 +11,7 @@ import { Compras } from "./pages/Compras"
 import { CriarProdutos } from './pages/Criar_Produtos'
 import { DeletarProdutos } from './pages/Deletar_produtos'
 import { EditarProdutos } from './pages/Editar_Produtos'
+import { EfetuarCompras } from './pages/Efetuar_compras'
 import { Produtos } from './pages/Produtos'
 import { VizualizarProdutos } from './pages/Vizualizar_produto'
 
@@ -25,6 +26,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Compras />} />
+          <Route path='/compras/create' element={<EfetuarCompras />} />
           <Route path='/produtos' element={<Produtos />} />
           <Route path="/produtos/create" element={<CriarProdutos />} />
           <Route path="/produtos/edit/:id" element={<EditarProdutos />} />

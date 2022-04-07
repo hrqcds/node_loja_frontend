@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { http } from "../../http/axios"
 import { useParams } from "react-router-dom"
 import dayjs from "dayjs"
+import toast from "react-hot-toast"
 
 export function VizualizarProdutos() {
 
@@ -28,6 +29,7 @@ export function VizualizarProdutos() {
 
             setCriacao(c.format("DD/MM/YYYY"))
             setAtualizacao(a.format("DD/MM/YYYY"))
+
         }
 
         getProduto().catch(e => console.log(e))

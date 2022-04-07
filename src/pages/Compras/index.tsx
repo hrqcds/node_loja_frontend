@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import toast from "react-hot-toast"
+import { useNavigate } from "react-router-dom"
 import { iPropsCompras, TabelaDeCompras } from "../../components/tabela_de_compras"
 import { http } from "../../http/axios"
 import "./Compras.css"
@@ -6,6 +8,7 @@ import "./Compras.css"
 export function Compras() {
 
     const [compras, setCompras] = useState<iPropsCompras[]>([])
+    const navigate = useNavigate()
 
     useEffect(() => {
 
@@ -27,7 +30,9 @@ export function Compras() {
             <h1>Lista de compras</h1>
 
             <div className="ComprasButton">
-                <button>Comprar</button>
+                <button onClick={() => {
+                    navigate("/compras/create")
+                }}>Comprar</button>
             </div>
 
             <div className="div-table">

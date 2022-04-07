@@ -21,7 +21,6 @@ export function DeletarProdutos() {
         const getProduto = async () => {
 
             const response = await http.get(`/produtos/find/${id}`)
-
             setNome(response.data.produto.nome)
             setDescricao(response.data.produto.descricao)
             setPreco(response.data.produto.preco)
@@ -31,6 +30,7 @@ export function DeletarProdutos() {
 
             setCriacao(c.format("DD/MM/YYYY"))
             setAtualizacao(a.format("DD/MM/YYYY"))
+
         }
 
         getProduto().catch(e => console.log(e))
