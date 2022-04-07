@@ -56,7 +56,7 @@ export function TabelaDeCompras(
 
         setTimeout(() => {
             window.location.reload()
-        }, 1250)
+        }, 1000)
 
 
     }
@@ -82,10 +82,14 @@ export function TabelaDeCompras(
                     <FiEye />
                 </button>
 
-                <button className="td-button" style={{
-                    padding: ".2rem",
-                    marginRight: ".3rem"
-                }}>
+                <button
+                    onClick={() => {
+                        navigate(`/compras/edit/${id}`)
+                    }}
+                    className="td-button" style={{
+                        padding: ".2rem",
+                        marginRight: ".3rem"
+                    }}>
                     <FiEdit />
                 </button>
 

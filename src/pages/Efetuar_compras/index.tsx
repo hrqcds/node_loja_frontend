@@ -105,10 +105,11 @@ export function EfetuarCompras() {
             return
         }
 
-        if (!pagamento) {
+        if (pagamento === "") {
             toast.error("Selecione uma forma de pagamento", {
                 duration: 1250
             })
+            return
         }
 
         try {
