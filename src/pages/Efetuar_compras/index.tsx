@@ -1,3 +1,4 @@
+import "./Efetuar-compras.css"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { http } from "../../http/axios"
@@ -132,57 +133,68 @@ export function EfetuarCompras() {
     }
 
     return (
-        <div>
+        <div className="cabecalho">
             <h1>Compra de produtos - Total: R$ {total}</h1>
+            <div className="cabecalho-p">
 
-            <p>
-                Tipo de pagamento
-                <select value={pagamento} onChange={e => setPagamento(e.target.value)}>
-                    <option value="" disabled>Selecione uma opção</option>
-                    <option value="credito">Credito</option>
-                    <option value="debito">Debito</option>
-                    <option value="dinheiro">Dinheiro</option>
-                </select>
-            </p>
-            <div>
-                <p>
-                    Produtos:
+                <div>
+                    <p>
+                        Tipo de pagamento
+                    </p>
+                    <select value={pagamento} onChange={e => setPagamento(e.target.value)}>
+                        <option value="" disabled>Selecione uma opção</option>
+                        <option value="credito">Credito</option>
+                        <option value="debito">Debito</option>
+                        <option value="dinheiro">Dinheiro</option>
+                    </select>
+                </div>
+
+                <div >
+
+                    <p>
+                        Produtos
+                    </p>
                     <select value={select} onChange={e => setSelect(e.target.value)}>
                         <option value="" disabled>Selecione um produto</option>
                         {produtos.map(p => (
                             <option value={p.id} key={p.id}>{` ${p.nome} - R$ ${p.preco}`}</option>
                         ))}
                     </select>
-                </p>
-                <p>
-                    Quantidade:
+
+                    <p>
+                        Quantidade
+                    </p>
                     <input
                         type="number"
                         min={1} max={99}
                         value={quantidade}
                         onChange={e => setQuantidade(Number(e.target.value))} />
-                </p>
 
-                <div>
+                </div>
+                <button onClick={adicionarProduto}>Adicionar produto</button>
+
+                <div className="cabecalho-produtos">
+                    <h2>Lista de Produtos</h2>
                     {
                         produtosSelecionados.map(p => (
-                            <div key={p.id}>
-                                <p>Código: {p.id}</p>
-                                <p>Mome: {p.nome}</p>
-                                <p>Preco: {p.preco}</p>
-                                <p>Quantidade: {p.quantidade}</p>
-                                <button onClick={() => removerProduto(p.id)}>
+
+                            <div className="teste">
+                                <p key={p.id}>
+                                    Código: <span>{p.id}</span> - Nome: <span>{p.nome}</span> - Preco: <span>{p.preco}</span> - Quantidade: <span>{p.quantidade}</span>
+                                </p>
+                                <button
+                                    onClick={() => removerProduto(p.id)}>
                                     <FiTrash />
                                 </button>
                             </div>
+
                         ))
                     }
                 </div>
 
-                <button onClick={adicionarProduto}>Adicionar produto</button>
             </div>
 
-            <button onClick={efetuar}>
+            <button style={{ marginTop: "1rem" }} onClick={efetuar}>
                 Efetuar compra
             </button>
         </div>

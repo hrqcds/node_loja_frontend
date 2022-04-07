@@ -1,3 +1,4 @@
+import "./Editar-produtos.css"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { http } from "../../http/axios"
@@ -59,34 +60,46 @@ export function EditarProdutos() {
     }
 
     return (
-        <div>
+        <div className="cabecalho">
             <h1>Edição de produtos</h1>
 
-            <p>
-                Nome do produto
-                <label htmlFor="name"></label>
-                <input name="name" type="text" value={nome} placeholder="Insira o nome do produto" onChange={(e => setNome(e.target.value))} />
-            </p>
+            <div className="cabecalho-p">
+                <div>
 
-            <p>
-                Descrição do produto
-                <label htmlFor="descricao"></label>
-                <input name="descricao" type="text" value={descricao} placeholder="Insira uma descrição do produto" onChange={(e => setDescricao(e.target.value))} />
-            </p>
+                    <p>
+                        Nome do produto
+                    </p>
+                    <label htmlFor="name"></label>
+                    <input name="name" type="text" value={nome} placeholder="Insira o nome do produto" onChange={(e => setNome(e.target.value))} />
+                </div>
 
-            <label htmlFor="preco">
-                <p>
-                    Preço do produto
-                    <label htmlFor="preco"></label>
-                    <input name="preco" type="number" value={preco} placeholder="Insira o nome do produto" min={1} onChange={e => setPreco(Number(e.target.value))} />
-                </p>
+                <div>
 
-            </label>
+                    <p>
+                        Descrição do produto
+                    </p>
+                    <label htmlFor="descricao"></label>
+                    <input name="descricao" type="text" value={descricao} placeholder="Insira uma descrição do produto" onChange={(e => setDescricao(e.target.value))} />
+                </div>
+
+                <div>
+
+                    <label htmlFor="preco">
+                        <p>
+                            Preço do produto
+                        </p>
+                        <label htmlFor="preco"></label>
+                        <input name="preco" type="number" value={preco} placeholder="Insira o nome do produto" min={1} onChange={e => setPreco(Number(e.target.value))} />
+
+                    </label>
+
+                </div>
 
 
-            <button onClick={editar}>
-                Editar produto
-            </button>
+                <button onClick={editar}>
+                    Editar produto
+                </button>
+            </div>
         </div>
 
     )

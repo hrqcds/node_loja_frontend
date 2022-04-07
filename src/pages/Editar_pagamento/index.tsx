@@ -1,3 +1,4 @@
+import "./Editar-pagamento.css"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { http } from "../../http/axios"
@@ -75,61 +76,6 @@ export function EditarPagamento() {
         getCompra().catch(e => console.log(e))
     }, [])
 
-    // const adicionarProduto = () => {
-
-    //     const ps = produtosSelecionados
-
-    //     if (!select) {
-    //         toast.error("Produto não selecionado", {
-    //             duration: 1250
-    //         })
-    //         return
-    //     }
-
-    //     const pItem = produtos.find(p => p.id === Number(select))
-    //     const precoCorreto = !pItem?.preco ? 0 : pItem.preco
-    //     setTotal(total + precoCorreto * quantidade)
-    //     const psExist = produtosSelecionados.findIndex(p => p.id === Number(select))
-
-    //     if (psExist != -1) {
-    //         ps[psExist].quantidade += quantidade
-    //         setProdutosSelecionados(ps)
-    //         setSelect("")
-    //         setQuantidade(1)
-    //         toast.success("Produto adicionado", {
-    //             duration: 1250
-    //         })
-    //         return
-    //     }
-
-    //     ps.push({ id: pItem?.id, nome: pItem?.nome, preco: pItem?.preco, quantidade })
-    //     setProdutosSelecionados(ps)
-    //     setSelect("")
-    //     setQuantidade(1)
-    //     toast.success("Produto adicionado", {
-    //         duration: 1250
-    //     })
-    //     return
-
-    // }
-
-    // const removerProduto = (id: number | undefined) => {
-
-    //     if (produtosSelecionados.length < 1 || !id) {
-    //         toast.error("Nenhum produto foi selecionado", {
-    //             duration: 1250
-    //         })
-    //         return
-    //     }
-
-    //     const index = produtosSelecionados.findIndex(p => p.id === Number(id))
-    //     const p = produtosSelecionados
-    //     setTotal(total - Number(p[index].preco) * produtosSelecionados[index].quantidade)
-    //     p.splice(index, 1)
-    //     setProdutosSelecionados(p)
-    //     toast.success("Item removido")
-    //     return
-    // }
 
     const editar = async () => {
 
@@ -161,49 +107,54 @@ export function EditarPagamento() {
     }
 
     return (
-        <div>
+        <div className="cabecalho">
             <h1>Editar Pagamento - Total: R$ {total}</h1>
 
-            <p>
-                Código da compra: {produtosSelecionados?.id}
-            </p>
+            <div className="cabecalho-p">
 
-            <p>
-                Status da compra: {produtosSelecionados?.status}
-            </p>
-            <p>
+                <p>
+                    Código da compra <span>{produtosSelecionados?.id}</span>
+                </p>
 
-                Data da compra: {data}
-            </p>
+                <p>
+                    Status da compra <span>{produtosSelecionados?.status}</span>
+                </p>
 
-            <p>
-                Tipo de pagamento
-                <select value={pagamento.toLowerCase()} onChange={e => setPagamento(e.target.value)}>
-                    <option value="" disabled>Selecione uma opção</option>
-                    <option value="credito">Credito</option>
-                    <option value="debito">Debito</option>
-                    <option value="dinheiro">Dinheiro</option>
-                </select>
-            </p>
-            <div>
+                <p>
+
+                    Data da compra <span>{data}</span>
+                </p>
+
                 <div>
+                    <p>
+                        Tipo de pagamento
+                    </p>
+                    <select value={pagamento.toLowerCase()} onChange={e => setPagamento(e.target.value)}>
+                        <option value="" disabled>Selecione uma opção</option>
+                        <option value="credito">Credito</option>
+                        <option value="debito">Debito</option>
+                        <option value="dinheiro">Dinheiro</option>
+                    </select>
+                </div>
+                <div className=".cabecalho-compras">
+                    <h2>Lista de Produtos</h2>
                     {
                         produtosSelecionados?.listaDeProdutos.map(p => (
-                            <div key={p.produto.id}>
-                                <p>Código: {p.produto.id}</p>
-                                <p>Nome: {p.produto.nome}</p>
-                                <p>Preco: {p.produto.preco}</p>
-                                <p>Quantidade: {p.quantidade}</p>
+                            <div className="teste" key={p.produto.id}>
+                                <p>Código: <span>{p.produto.id}</span></p>
+                                <p>Nome: <span>{p.produto.nome}</span></p>
+                                <p>Preco: <span>R$ {p.produto.preco}</span></p>
+                                <p>Quantidade: <span>{p.quantidade}</span></p>
                             </div>
                         ))
                     }
                 </div>
 
+                <button onClick={editar}>
+                    Editar forma de pagamento
+                </button>
             </div>
 
-            <button onClick={editar}>
-                Editar forma de pagamento
-            </button>
         </div>
 
     )

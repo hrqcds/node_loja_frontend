@@ -1,3 +1,4 @@
+import "./visualizar-compras.css"
 import dayjs from "dayjs"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
@@ -29,36 +30,37 @@ export function VisualizarCompra() {
     }, [])
 
     return (
-        <div>
+        <div className="cabecalho">
             <h1>
                 Visualizar compra
             </h1>
 
-            <p>
-                Código de compra: {Number(compra?.id)}
-            </p>
-            <p>
-                Pagamento: {compra?.tipo_pagamento}
-            </p>
-            <p>
-                Status: {compra?.status}
-            </p>
-            <p>
-                Total: {compra?.total}
-            </p>
-            <p>
-                Data da compra: {data}
-            </p>
-            <div>
-                <h4>Lista de produtos</h4>
-                {compra?.listaDeProdutos.map(l => (
-                    <div key={l.produto.id}>
-                        <p>Produto: {l.produto.nome}</p>
-                        <p>Preco: {l.produto.preco}</p>
-                        <p>Quantidade: {l.quantidade}</p>
-                    </div>
-                ))}
+            <div className="cabecalho-p">
+                <p>
+                    Código de compra: <span> {Number(compra?.id)} </span>
+                </p>
+                <p>
+                    Pagamento: <span> {compra?.tipo_pagamento} </span>
+                </p>
+                <p>
+                    Status: <span>{compra?.status}</span>
+                </p>
+                <p>
+                    Total: <span>{compra?.total}</span>
+                </p>
+                <p>
+                    Data da compra: <span>{data}</span>
+                </p>
+                <div>
+                    <h4>Lista de produtos</h4>
 
+                    {compra?.listaDeProdutos.map(l => (
+                        <div className="cabecalho-p" key={l.produto.id}>
+                            <p>Produto: <span>{l.produto.nome}</span> - Preco: <span>R$ {l.produto.preco}</span> - Quantidade: <span>{l.quantidade}</span></p>
+                        </div>
+                    ))}
+
+                </div>
             </div>
         </div>
     )

@@ -1,3 +1,4 @@
+import "./Deletar-produtos.css"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { http } from "../../http/axios"
@@ -63,32 +64,35 @@ export function DeletarProdutos() {
     }
 
     return (
-        <div>
+        <div className="cabecalho">
             <h1>Deleção de produtos</h1>
 
-            <p>
-                Nome do produto: {nome}
-            </p>
+            <div className="cabecalho-p">
 
-            <p>
-                Descrição do produto: {descricao}
-            </p>
+                <p>
+                    Nome do produto: <span> {nome} </span>
+                </p>
 
-            <p>
-                Preço do produto: {preco}
-            </p>
+                <p>
+                    Descrição do produto:  <span>{descricao}</span>
+                </p>
 
-            <p>
-                Data de criação: {criacao}
-            </p>
+                <p>
+                    Preço do produto: <span>{preco}</span>
+                </p>
 
-            <p>
-                Data da última atualização: {atualizacao}
-            </p>
+                <p>
+                    Data de criação: <span>{criacao}</span>
+                </p>
 
-            <button onClick={deletar}>
-                Deletar produto
-            </button>
+                <p>
+                    Data da última atualização: <span>{atualizacao}</span>
+                </p>
+
+                <button onClick={deletar}>
+                    Deletar produto
+                </button>
+            </div>
         </div>
 
     )

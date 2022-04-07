@@ -16,11 +16,11 @@
 .Sidebar a {
     font-size: 2rem;
     text-decoration: none;
-    transition: brightness 2s;
-    color: #aeb0b1;
+    transition: filter .5s;
+    color: #093794;
 }
 
 .Sidebar a:hover {
     text-decoration: underline;
-    filter: brightness(0.6);
+    filter: brightness(0.8);
 }
