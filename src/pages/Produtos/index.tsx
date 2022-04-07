@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { TabelaDeProdutos } from "../../components/tabela_de_produtos"
 import { http } from "../../http/axios"
 import "./Produtos.css"
@@ -12,9 +13,13 @@ interface iRequestProducts {
     data_atualizacao: Date
 }
 
+
+
 export function Produtos() {
 
     const [produtos, setProdutos] = useState<iRequestProducts[]>([])
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         const getAllProducts = async () => {
@@ -25,7 +30,6 @@ export function Produtos() {
 
         getAllProducts().catch(e => console.log(e))
 
-
     }, [])
 
 
@@ -35,7 +39,9 @@ export function Produtos() {
             <h1>Lista de produtos</h1>
 
             <div className="ProdutosButton">
-                <button>Cadastrar</button>
+                <button onClick={() => {
+                    navigate("/produtos/create")
+                }}>Cadastrar</button>
             </div>
 
             <div className="div-table">
@@ -43,9 +49,10 @@ export function Produtos() {
                     <thead>
                         <tr>
                             <th>Código</th>
-                            <th>Preço</th>
+                            <th>Nome</th>
                             <th>Descricao</th>
-                            <th>Data de criação</th>
+                            <th>Preço</th>
+                            <th>Criado</th>
                             <th>Opções</th>
                         </tr>
                     </thead>

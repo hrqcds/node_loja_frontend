@@ -1,17 +1,35 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { http } from "../../http/axios"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
-export function CriarProdutos() {
+export function EditarProdutos() {
 
     const [nome, setNome] = useState("")
     const [descricao, setDescricao] = useState("")
     const [preco, setPreco] = useState(0)
 
     const navigate = useNavigate()
+    const { id } = useParams()
 
-    const criar = async () => {
+    useEffect(() => {
+
+        const getProduto = async () => {
+
+            const response = await http.get(`/produtos/find/${id}`)
+
+            setNome(response.data.produto.nome)
+            setDescricao(response.data.produto.descricao)
+            setPreco(response.data.produto.preco)
+
+        }
+
+        getProduto().catch(e => console.log(e))
+
+    }, [])
+
+
+    const editar = async () => {
 
         if (!nome || !descricao || !preco) {
             toast.error("Campos obrigatórios estão vázios", {
@@ -22,23 +40,27 @@ export function CriarProdutos() {
 
         try {
 
-            await http.post("/produtos/create", {
+            await http.put(`/produtos/update/${id}`, {
                 nome, descricao, preco
             })
 
-            toast.success("Produto cadastrado com sucesso",)
+            toast.success("Produto atualizado com sucesso", {
+                duration: 1250
+            })
             return navigate("/produtos")
         } catch (e) {
+
             toast.error("Erro na requisição", {
                 duration: 1250,
             })
             return
+
         }
     }
 
     return (
         <div>
-            <h1>Cadastro de produtos</h1>
+            <h1>Edição de produtos</h1>
 
             <p>
                 Nome do produto
@@ -55,14 +77,15 @@ export function CriarProdutos() {
             <label htmlFor="preco">
                 <p>
                     Preço do produto
+                    <label htmlFor="preco"></label>
                     <input name="preco" type="number" value={preco} placeholder="Insira o nome do produto" min={1} onChange={e => setPreco(Number(e.target.value))} />
                 </p>
 
             </label>
 
 
-            <button onClick={criar}>
-                Cadastrar produto
+            <button onClick={editar}>
+                Editar produto
             </button>
         </div>
 

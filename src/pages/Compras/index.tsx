@@ -15,7 +15,6 @@ export function Compras() {
 
             setCompras(response.compras)
 
-            console.log(compras)
         }
 
         getAllPurchases().catch(e => console.log(e))
@@ -39,7 +38,7 @@ export function Compras() {
                             <th>Total</th>
                             <th>Pagamento</th>
                             <th>Status</th>
-                            <th>Data</th>
+                            <th>Criado</th>
                             <th>Opções</th>
                         </tr>
                     </thead>
