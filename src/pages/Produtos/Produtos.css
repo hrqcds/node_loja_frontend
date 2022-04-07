@@ -1,0 +1,55 @@
+.Produtos {
+    height: 90vh;
+}
+
+.ProdutosButton {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    padding-right: 1rem;
+}
+
+.ProdutosButton button {
+    padding: .8rem;
+    border-radius: 2px;
+    border: 1px solid #001848;
+    background-color: white;
+    transition: filter .8s;
+}
+
+.ProdutosButton button:hover {
+    cursor: pointer;
+    filter: brightness(0.8);
+}
+
+.div-table {
+    width: 90%;
+    height: 70%;
+    overflow: auto;
+
+}
+
+table {
+    padding-top: 1rem;
+    text-align: center;
+    width: 100%;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+tr th {
+    text-align: center;
+    background: #093794;
+    color: #eaeaea;
+}
+
+td,
+th {
+    text-align: center;
+    padding: .8rem;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

@@ -1,0 +1,26 @@
+.Sidebar {
+
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 100%;
+    margin-top: 2rem;
+    padding: .5rem;
+    align-items: center;
+    gap: 2rem;
+
+    border-right: 1px solid black;
+
+}
+
+.Sidebar a {
+    font-size: 2rem;
+    text-decoration: none;
+    transition: brightness 2s;
+    color: #aeb0b1;
+}
+
+.Sidebar a:hover {
+    text-decoration: underline;
+    filter: brightness(0.6);
+}

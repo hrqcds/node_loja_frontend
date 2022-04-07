@@ -1,0 +1,11 @@
+.td-button {
+    border-radius: 2px;
+    border: 1px solid #001848;
+    background-color: white;
+    transition: filter .8s;
+}
+
+.td-button:hover {
+    cursor: pointer;
+    filter: brightness(0.8);
+}
