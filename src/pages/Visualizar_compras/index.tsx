@@ -51,7 +51,7 @@ export function VisualizarCompra() {
                 <p>
                     Data da compra: <span>{data}</span>
                 </p>
-                <div>
+                <div style={{ flexDirection: "column" }}>
                     <h4>Lista de produtos</h4>
 
                     {compra?.listaDeProdutos.map(l => (

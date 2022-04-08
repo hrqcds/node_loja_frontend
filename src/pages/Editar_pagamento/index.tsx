@@ -136,7 +136,7 @@ export function EditarPagamento() {
                         <option value="dinheiro">Dinheiro</option>
                     </select>
                 </div>
-                <div className=".cabecalho-compras">
+                <div style={{ flexDirection: "column" }}>
                     <h2>Lista de Produtos</h2>
                     {
                         produtosSelecionados?.listaDeProdutos.map(p => (
