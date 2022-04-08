@@ -2,6 +2,11 @@
     height: 90vh;
 }
 
+.Compras h1 {
+    position: relative;
+    top: 2.2rem;
+}
+
 .ComprasButton {
     width: 100%;
     display: flex;
