@@ -6,20 +6,26 @@
 - Node
 
 #### Telas
+
 Lista de compras
-<img src="./public/img/inicial.png" width="500">
+
+<img src="./public/img/inicial.png" width="500px">
 
 Efetuar compra
-<img src="./public/img/compra_de_produtos.png" width="400">
+
+<img src="./public/img/compra_de_produtos.png" width="500px">
 
 Visualizar compra
-<img src="./public/img/visualizar.png">
+
+<img src="./public/img/visualizar.png" width="500px">
 
 Lista de produtos
-<img src="./public/img/lista_de_produtos.png" width="400">
+
+<img src="./public/img/lista_de_produtos.png" width="500px">
 
 Cadastro de produtos
-<img src="./public/img/cadastro_produto.png" width="400">
+
+<img src="./public/img/cadastro_produto.png" width="500px">
 
 #### Passo a Passo para instalação:
 
@@ -29,7 +35,7 @@ Cadastro de produtos
 
 3. Configurar o axios para a porta do BACKEND
 
-<img src="./public/img/axios.png" width="400">
+<img src="./public/img/axios.png" width="500px">
 
 4. Rodar o script do sistema:
     * npm run dev
