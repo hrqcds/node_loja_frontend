@@ -32,6 +32,8 @@ Cadastro de produtos
 1. Baixar repositório do GIT
 
 2. Instalar dependências do NODE
+   - npm install
+   - yarn
 
 3. Configurar o axios para a porta do BACKEND
 
